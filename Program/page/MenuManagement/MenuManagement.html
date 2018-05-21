@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>菜单权限</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/page.css" />
+	</head>
+
+	<body>
+		<!--顶部菜单-->
+		<div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>菜单权限管理</legend>
+            </fieldset>
+        </div>
+        <div class="layui-row">
+            <div class="layui-row">
+                <table class="layui-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 20%;">
+                                <div style="" class="tree-box">
+                                    <ul id="Departments-tree"></ul>
+                                </div>
+                            </td>
+                            <td style="width: 80%;padding: 0px;">
+                                <div class="">
+                                    <iframe src="MenuDetails.html" width="100%" height="500px" style="border: none;" id="tree-iframe"></iframe>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/page.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			layui.use(['tree', 'layer'], function() {
+				var layer = layui.layer,
+					$ = layui.jquery;
+
+				layui.tree({
+					elem: '#Departments-tree', //指定元素						
+					target: '_blank', //是否新选项卡打开（比如节点返回href才有效）						
+					click: function(item) { //点击节点回调
+						layer.msg('当前节名称：' + item.name + '<br>全部参数：' + JSON.stringify(item));
+						console.log(item);
+					},
+					nodes: [ //节点
+			            {
+			            	name:'星层科技',
+			            	id:0,
+			            	spread:false
+			            },
+						{
+							name: '工程量管理',
+							id: 1,
+							alias: 'yanfabu',
+							children: [{
+								name: '清单汇总表',
+								id: 11,
+								href: '#',
+								alias: 'fanmo'
+							}, {
+								name: '成本汇总表',
+								id: 12
+							}, {
+								name: '模型展示',
+								id: 13
+							}]
+						}, {
+							name: '安全管理',
+							id: 2,
+							spread: false,
+							children: [{
+								name: '安全日志',
+								id: 21,
+								spread: true															
+							}, {
+								name: '安全整改',
+								id: 22,								
+							}]
+						}, {
+							name: '质量管理',
+							id: 3,
+							alias: 'changyong',
+							children: [{
+								name: '质量检查',
+								id: 31,
+								alias: 'love'
+							}, {
+								name: '质量整改',
+								id: 32,
+								
+							}]
+						},
+						{
+							name: '材料管理',
+							id: 3,
+							alias: 'changyong',
+							children: [{
+								name: '材料计划',
+								id: 31,
+								alias: 'love'
+							}, {
+								name: '材料采购单',
+								id: 32,
+								
+							}]
+						},
+						{
+							name: '证件管理',
+							id: 4,
+							alias: 'changyong',
+							children: [{
+								name: '证件查询',
+								id: 41,
+								alias: 'love'
+							}]
+						},
+						{
+							name: '项目管理',
+							id: 5,
+							alias: 'changyong',
+							children: [{
+								name: '项目信息',
+								id: 51,
+								
+							}]
+						}
+					]
+				});
+
+				
+
+			});
+		</script>
+	</body>
+
+</html>

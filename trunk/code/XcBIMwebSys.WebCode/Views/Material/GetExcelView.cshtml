@@ -1,0 +1,154 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetExcelView</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/page.css" />
+</head>
+<body>
+    <div>
+        <div class="layui-row">
+            <table id="FileTable" lay-filter="FileTable"></table>
+        </div>
+    </div>
+<script src="~/Content/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="~/Content/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    var tableIns;
+
+    layui.use(['jquery', 'table', 'form', 'laypage'], function () {
+        var $ = layui.$,
+            table = layui.table,
+            form = layui.form;
+        laypage = layui.laypage;
+
+
+        tableIns = table.render({
+            elem: '#FileTable',
+            cols: [
+                [{
+                    checkbox: true
+                }, {
+                    field: 'tbid',
+                    title: 'ID',
+                    align: 'center',
+                    width: 300
+                }, {
+                    field: 'tbfileType',
+                    title: '分类',
+                    align: 'center',
+                    width: 100
+                }, {
+                    field: 'tbnamebefore',
+                    title: '文件名',
+                    align: 'center',
+                    width: 100
+                    //templet: function (d) {
+                    //    return '<i class="layui-icon">&#xe621;</i><a download="' + d.FileName + '" style="color:blue" href="' + d.DownloadUrl + '">' + d.FileName + '</a>';
+                    //}
+                }, {
+                    field: 'tbfileExplain',
+                    title: '说明',
+                    align: 'center'
+                }, {
+                    field: 'tbusername',
+                    title: '上传人',
+                    align: 'center',
+                    width: 100
+                }, {
+                    field: 'tbdate',
+                    title: '上传时间',
+                    align: 'center',
+                    width: 180
+                }, {
+                    fixed: 'right',
+                    align: 'center',
+                    toolbar: '#barDemo',
+                    width: 150
+                }]
+            ],
+            initSort: {
+                field: 'tbdate',
+                type: 'desc'
+            },
+            where: {},
+            headers: {
+                page: 1,
+                limit: 15
+            },
+            limit: 15,
+            limits: [15, 30, 45, 60, 75, 90],
+            page: laypage, //开启分页
+
+            loading: true,
+            url: '/Material/getfileList', //数据接口
+            method: 'get',
+            done: function (res, curr, count) {
+                //得到当前页码
+                console.log(curr);
+
+                //得到数据总量
+                console.log(count);
+
+            }
+        })
+
+        //监听表格复选框选择
+        table.on('checkbox(FileTable)', function (obj) {
+            console.log(obj)
+        });
+        //监听工具条
+        table.on('tool(FileTable)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+                fileShow(data.tbnamebefore, data.tbaddress, data.tbtype);
+                // layer.msg('ID：' + data.tbnamebefore + ' 的查看操作');
+
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除行么', function (index) {
+                    obj.del();
+                    fileDelete(data.tbnamebefore);
+                    layer.close(index);
+                });
+            } else if (obj.event === 'down') {
+                fileDown(data.tbnamebefore)
+                //layer.alert('编辑行：<br>' + JSON.stringify(data))
+
+            }
+        });
+
+        var $ = layui.$, active = {
+            getCheckData: function () { //获取选中数据
+                var checkStatus = table.checkStatus('idTest')
+                    , data = checkStatus.data;
+                layer.alert(JSON.stringify(data));
+            }
+            , getCheckLength: function () { //获取选中数目
+                var checkStatus = table.checkStatus('idTest')
+                    , data = checkStatus.data;
+                layer.msg('选中了：' + data.length + ' 个');
+            }
+            , isAll: function () { //验证是否全选
+                var checkStatus = table.checkStatus('idTest');
+                layer.msg(checkStatus.isAll ? '全选' : '未全选')
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    })
+
+
+
+</script>
+</body>
+</html>

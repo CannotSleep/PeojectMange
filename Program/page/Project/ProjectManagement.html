@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>项目管理-BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+    <style type="text/css">
+        #btn-search {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!--顶部菜单-->
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="">
+                <fieldset id="" class="layui-elem-field layui-field-title">
+                    <legend>项目管理</legend>
+                </fieldset>
+                <div class="">
+                    <div class="layui-row">
+                        <div class=" pd-15 float-l">
+                            <button class="layui-btn">添加</button>
+                        </div>
+                        <div class="float-r">
+                            <div class="input-group float-l ml-15">
+                                <input type="text" name="" id="" placeholder="请输入关键字" class="layui-input" />
+                            </div>
+                            <button class="layui-btn" id="btn-search"><i class="iconfont icon-search"></i>搜索</button>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <table class="layui-table text-c CommonListTable">
+                            <thead class="text-c">
+                                <tr>
+                                	<th>序号</th>
+                                	<th>公司名</th>
+                                    <th>项目名称</th>                                    
+                                    <th>建设单位</th>
+                                    <th>项目负责人</th>                                   
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="tr-one">
+                                	<td>0</td>
+                                	<td>广东星层建筑科技股份有限公司</td>
+                                    <td>韶关印雪精舍项目</td>
+                                   
+                                    <td>东莞市莞城建筑工程有限公司</td>
+                                    <td>任工</td>                                   
+                                    <td>                                        
+                                        <a href="ProjectEdit.html" class="layui-btn">修改</a>
+                                        <a href="" class="layui-btn layui-btn-danger" onclick="return false">删除</a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['layer', 'table', 'jquery'], function() {
+            var layer = layui.layer,
+                $ = layui.jquery,
+                table = layui.table;
+
+            //删除当前行
+            $(".layui-btn-danger").on("click", function() {
+                var _this = $(this);
+                layer.confirm('确认删除该记录？', {
+                    btn: ['确认', '取消'] //按钮
+                }, function(index) {
+                    //以下为确认按钮触发事件
+                    layer.close(index);
+                    console.log();
+                    $(_this).parent().parent().remove();
+                }, function() {
+                    console.log("取消删除");
+                });
+            })
+
+        });
+    </script>
+</body>
+</html>

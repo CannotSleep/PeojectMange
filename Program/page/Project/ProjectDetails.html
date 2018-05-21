@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>星层科技BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <!--顶部菜单-->
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="layui-col-md9">
+                <fieldset id="" class="layui-elem-field layui-field-title">
+                    <legend>
+                        <a href="javascript:history.back(-1)">
+                            <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe65c;</i></button>
+                        </a>
+                        项目信息浏览
+                    </legend>
+                </fieldset>
+                <div class="pl-20">
+                    <table class="layui-table CommonTable">
+                        <tbody>
+                            <tr>
+                                <td>项目名称</td>
+                                <td>韶关印雪精舍项目</td>
+                            </tr>
+                            <tr>
+                                <td>项目类型</td>
+                                <td>房屋建筑/基础设施</td>
+                            </tr>
+                            <tr>
+                                <td>项目负责人</td>
+                                <td>李金明</td>
+                            </tr>
+                            <tr>
+                                <td>项目开始日期</td>
+                                <td>2018年3月27日</td>
+                            </tr>
+                            <tr>
+                                <td>项目结束日期</td>
+                                <td>2018年10月30日</td>
+                            </tr>
+                            <tr>
+                                <td>项目负责人</td>
+                                <td>任工</td>
+                            </tr>
+                            <tr>
+                                <td>联系电话</td>
+                                <td>15211132874</td>
+                            </tr>
+
+                            <tr>
+                                <td>项目简介</td>
+                                <td>东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公15211132874东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公15211132874</td>
+                            </tr>
+                            <tr>
+                                <td>项目地址</td>
+                                <td>东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司东莞市莞城建筑工程有限公司</td>
+                            </tr>
+                            <tr>
+                                <td>备注</td>
+                                <td>123</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <fieldset id="" class="layui-elem-field layui-field-title">
+                    <legend>项目缩略图</legend>
+                </fieldset>
+                <div class="Thumbnail">
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md9">
+                <div class="img-row">
+                    <fieldset id="" class="layui-elem-field layui-field-title">
+                        <legend>项目图片展示</legend>
+                    </fieldset>
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                    <img src="../../images/model.png" layer-src="../../images/model.png" alt="" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../../layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/page.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layer.photos({
+            photos: '.img-row',
+            anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+        });
+    </script>
+</body>
+
+</html>

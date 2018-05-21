@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>星层科技BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+</head>
+
+<body>
+    <!--顶部菜单-->
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>角色管理</legend>
+            </fieldset>
+        </div>
+        <div class="layui-row">
+            <div class="layui-row">
+                <div class="QuantityAdd pd-15 pull-left">
+                    <button class="layui-btn">添加</button>
+                </div>
+                <div class="QuantitySearch pull-right">
+                    <div class="input-group pull-left">
+                        <input type="text" name="" id="" placeholder="请输入关键字" class="layui-input " />
+                    </div>
+                    <button class="layui-btn"><i class="fa fa-search"></i>搜索</button>
+                </div>
+            </div>
+            <div class="layui-row">
+                <table id="RolesTable" lay-filter="RolesTable">
+                   
+                </table>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/page.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['laypage', 'jquery','table'], function() {
+            var laypage = layui.laypage,
+                $ = layui.$,table=layui.table;
+
+            laypage.render({
+                elem: 'fenye',
+                count: 50
+            });
+            
+            //方法渲染表格
+            table.render({
+                elem: '#RolesTable',
+                cols: [
+                    [{
+                        checkbox: true
+                    }, {
+                        field: 'id',
+                        title: 'ID',
+                        sort: true,
+                        align:'center'
+
+                    }, {
+                        field: 'role',
+                        title: '角色',
+                        align:'center'
+
+                    }, {
+                        field: 'profile',
+                        title: '描述',
+                        align:'center',
+                        width:650
+                    }, {
+                        field: 'isOff',
+                        title: '是否启用',
+                        align:'center',
+                        width:180
+
+                    }, {
+                        toolbar:'#table-btn',
+                        title: '操作',
+                        align:'center'
+
+                    }]
+                ],
+                page: 'true', //开启分页
+                url: 'test.json', //数据接口
+                method: 'get',
+                done:function(){
+                	$("layui-table-cell .layui-btn").css("margin-right","10px");
+                }
+            });
+            
+            //监听表格按钮事件
+            table.on('tool(RolesTable)', function(obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+                if(layEvent === 'edit') { //编辑
+                    window.location.href="RolesEdit.html";
+                } else if(layEvent === 'del') { //删除
+                    layer.confirm('确认删除此行?', function(index) {
+                        obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                        layer.close(index);
+                        //向服务端发送删除指令
+                    });
+                }
+            });
+        })
+    </script>
+    <script type="text/html" id="table-btn">
+    	<!--表格工具条-->
+        <a class="layui-btn " lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger" lay-event="del">删除</a>
+    </script>
+</body>
+</html>

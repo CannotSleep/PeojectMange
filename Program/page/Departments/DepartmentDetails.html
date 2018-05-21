@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>部门信息修改-BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+    <style type="text/css">
+        .layui-form-switch {
+            width: 54px;
+        }
+        
+        .layui-form-item .layui-input-inline {
+            width: 320px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--顶部菜单-->
+    <div class="layui-fluid">
+        <div class="layui-row">
+        	<fieldset id="" class="layui-elem-field layui-field-title">
+        	    <legend>        	      
+        	        部门信息编辑
+        	    </legend>
+        	</fieldset>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md9">
+                <form action="" class="layui-form">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">上级部门:</label>
+                        <div class="layui-input-inline">
+                            <select name="Departsments" id="Departsments">
+                                <option value="">算量组</option>
+                                <optgroup label="研发部">
+                                    <option value="算量组">算量组</option>
+                                    <option value="平台组">平台组</option>
+                                    <option value="建模组">建模组</option>
+                                    <option value="综合组">综合组</option>
+                                    <option value="IT维护">IT维护</option>
+                                </optgroup>
+                                <optgroup label="咨询部">
+                                    <option value="管线综合组">管线综合组</option>
+                                    <option value="工程造价组">工程造价组</option>
+                                    <option value="市政工程组">市政工程组</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">部门:</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input" value="" placeholder="请输入部门名称"/>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">描述:</label>
+                        <div class="layui-input-inline">
+                            <textarea name="" layui-rows="" cols="" class="layui-textarea" placeholder="部门说明"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">排序:</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input" value="0" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">启用:</label>
+                        <div class="layui-input-inline">
+                            <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1">提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/page.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        (function() {
+            var depart = $("#Departsments");
+        })
+    </script>
+</body>
+
+</html>

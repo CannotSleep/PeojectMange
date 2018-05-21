@@ -1,0 +1,280 @@
+{
+	"name": "Autodesk Design Description",
+	"version": "0.1",
+	"designDescription": {
+		"id": "ADFFE347-AF8F-48E7-8EC1-4BA7F40E4A53",
+		"name": "My XRef File Design",
+		"currentVersion": "1",
+		"designGraphs": [
+			{
+				"creationDate": "2016-12-14 02:54:59",
+				"creatingService": "RVT LMV Extractor XRef",
+				"rootIds": [
+					1
+				],
+				"designObjectRefs": [],
+				"designObjects": [
+					{
+						"id": 1,
+						"version": 0,
+						"about": "urn:adsk.objects:os.object:extract-autodesk-io-2017/38%E5%8F%B7%E6%A5%BC%E5%BB%BA%E7%AD%91%E6%A8%A1%E5%9E%8B.rvt",
+						"relativePath": "38%E5%8F%B7%E6%A5%BC%E5%BB%BA%E7%AD%91%E6%A8%A1%E5%9E%8B.rvt",
+						"displayName": "38%E5%8F%B7%E6%A5%BC%E5%BB%BA%E7%AD%91%E6%A8%A1%E5%9E%8B.rvt",
+						"contentType": ".rvt",
+						"shareInfo": null,
+						"references": [
+							{
+								"type": "x-ref",
+								"ids": [
+									2,
+									3,
+									4,
+									5,
+									6,
+									7,
+									8,
+									9,
+									10,
+									11,
+									12,
+									13,
+									14,
+									15,
+									16,
+									17,
+									18,
+									19,
+									20,
+									21,
+									22,
+									23
+								]
+							}
+						],
+						"metadata": {}
+					}, {
+						"id": 2,
+						"version": 0,
+						"about": "",
+						"relativePath": "A.dwg",
+						"displayName": "A.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 3,
+						"version": 0,
+						"about": "",
+						"relativePath": "首层平面图.dwg",
+						"displayName": "首层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 4,
+						"version": 0,
+						"about": "",
+						"relativePath": "二层平面图.dwg",
+						"displayName": "二层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 5,
+						"version": 0,
+						"about": "",
+						"relativePath": "三层平面图.dwg",
+						"displayName": "三层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 6,
+						"version": 0,
+						"about": "",
+						"relativePath": "四层平面图.dwg",
+						"displayName": "四层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 7,
+						"version": 0,
+						"about": "",
+						"relativePath": "五层平面图.dwg",
+						"displayName": "五层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 8,
+						"version": 0,
+						"about": "",
+						"relativePath": "六-十层平面图.dwg",
+						"displayName": "六-十层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 9,
+						"version": 0,
+						"about": "",
+						"relativePath": "十一 - 十五层平面图.dwg",
+						"displayName": "十一 - 十五层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 10,
+						"version": 0,
+						"about": "",
+						"relativePath": "十六层平面图.dwg",
+						"displayName": "十六层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 11,
+						"version": 0,
+						"about": "",
+						"relativePath": "十七层平面图.dwg",
+						"displayName": "十七层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 12,
+						"version": 0,
+						"about": "",
+						"relativePath": "十八层平面图.dwg",
+						"displayName": "十八层平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 13,
+						"version": 0,
+						"about": "",
+						"relativePath": "屋顶平面图.dwg",
+						"displayName": "屋顶平面图.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 14,
+						"version": 0,
+						"about": "",
+						"relativePath": "一层至十八层剪力墙.dwg",
+						"displayName": "一层至十八层剪力墙.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 15,
+						"version": 0,
+						"about": "",
+						"relativePath": "一层结构板.dwg",
+						"displayName": "一层结构板.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 16,
+						"version": 0,
+						"about": "",
+						"relativePath": "首层给排水.dwg",
+						"displayName": "首层给排水.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 17,
+						"version": 0,
+						"about": "",
+						"relativePath": "二层给排水.dwg",
+						"displayName": "二层给排水.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 18,
+						"version": 0,
+						"about": "",
+						"relativePath": "3-18层给排水.dwg",
+						"displayName": "3-18层给排水.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 19,
+						"version": 0,
+						"about": "",
+						"relativePath": "屋顶给排水.dwg",
+						"displayName": "屋顶给排水.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 20,
+						"version": 0,
+						"about": "",
+						"relativePath": "新块.dwg",
+						"displayName": "新块.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 21,
+						"version": 0,
+						"about": "",
+						"relativePath": "屋顶通风.dwg",
+						"displayName": "屋顶通风.dwg",
+						"contentType": ".dwg",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 22,
+						"version": 0,
+						"about": "",
+						"relativePath": "5号地块四期工程38#楼结构模型.rvt",
+						"displayName": "5号地块四期工程38#楼结构模型.rvt",
+						"contentType": ".rvt",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}, {
+						"id": 23,
+						"version": 0,
+						"about": "",
+						"relativePath": "38号楼结构模型.rvt",
+						"displayName": "38号楼结构模型.rvt",
+						"contentType": ".rvt",
+						"shareInfo": null,
+						"references": [],
+						"metadata": {}
+					}
+				]
+			}
+		]
+	}
+}

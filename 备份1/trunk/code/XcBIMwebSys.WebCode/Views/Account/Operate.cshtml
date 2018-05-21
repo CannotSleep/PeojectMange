@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+@using Tmp.Data.Entity;
+@model Account
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>星层科技BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/page.css" />
+</head>
+
+<body>
+    <!--顶部菜单-->
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>
+                    <a href="javascript:history.back(-1)">
+                        <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe65c;</i></button>
+                    </a>
+                    用户信息编辑
+                </legend>
+            </fieldset>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-col-md9">
+                <form action="" class="layui-form pd-20">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">账号:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="AccountID" id="" value="@Model.AccountID" class="layui-input" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">姓名:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Name" id="" value="@Model.Name" class="layui-input" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">部门:</label>
+                        <div class="layui-input-block">
+                            @Html.DropDownListFor(
+                               m => m.DepartmentsID,
+                               new DropDownListOption() { RefTable = "DepartmentsList", OptionLabel = "请选择",SelectValue = Model.DepartmentsID.ToString() },
+                               new Dictionary<string, object>(){
+                                   { "id", "DepartmentsID"},
+                                   { "data-placeholder","请选择"}
+                               })
+                        </div>
+                    </div>
+                    <input type="hidden" name="ID" value="@Model.ID"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-col-md9 col-sm-offset-2">
+                <div class="btn-group">
+                    <button class="layui-btn ">提交</button>
+                    <button class="layui-btn layui-btn-cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/page.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.extend.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <form id="form" class="form-horizontal" enctype="multipart/form-data" method="post" action="/Account/BatchAdd" role="form">
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-2 no-padding-right center" for="txtFUpload"><a id="lnkTemplates">表格模板</a></label>
+                <div class="col-xs-9 col-xs-10">
+                    <input type="file" id="txtFUpload" name="file" required="required" />
+                </div>
+                <button id="btnBatchAdd" class="btn btn-info" type="button">
+                    提交
+                </button>
+            </div>
+        </form>
+</div>
+</body>
+</html>
+<script>
+    $(function ($) {
+        $("#lnkTemplates").attr("href", "/File/Demo/BatchImportAccount.xls");
+    });
+
+    $("#btnBatchAdd").click(function () {
+        var file = $("#txtFUpload").val();
+        if (file == "") {
+            alert("请选择要上传的文件");
+            return false;
+        } else {
+            //检验文件类型是否正确
+            var exec = (/[.]/.exec(file)) ? /[^.]+$/.exec(file.toLowerCase()) : '';
+            if (exec != "xlsx" && exec != "xls") {
+                alert("文件格式不对，请上传Excel文件!");
+                return false;
+            }
+        }
+
+         $("form").submit();
+    });
+</script>

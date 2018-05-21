@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XcBIMwebSys.WebCode", "XcBIMwebSys.WebCode\XcBIMwebSys.WebCode.csproj", "{AE9ACF03-9AE6-4ADB-A80D-B0BC417292A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmp.Core", "Tmp.Core\Tmp.Core.csproj", "{90F0E5C9-ABDA-4580-A8C0-B943CC88A480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmp.Data", "Tmp.Data\Tmp.Data.csproj", "{0718DBCD-6D72-4223-9BD3-FB2389F25EC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmp.Service", "Tmp.Service\Tmp.Service.csproj", "{81EE8592-1C51-4603-BB04-BE80FA0CF281}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmp.Web.Framework", "Tmp.Web.Framework\Tmp.Web.Framework.csproj", "{A0E42A6E-A6E0-42A3-9EB1-8B0AE0C13880}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XcBIMwebSys.Service", "XcBIMwebSys.Service\XcBIMwebSys.Service.csproj", "{8DF159AA-CD6F-485C-A2CA-90067342FCA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9ACF03-9AE6-4ADB-A80D-B0BC417292A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9ACF03-9AE6-4ADB-A80D-B0BC417292A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9ACF03-9AE6-4ADB-A80D-B0BC417292A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9ACF03-9AE6-4ADB-A80D-B0BC417292A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F0E5C9-ABDA-4580-A8C0-B943CC88A480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F0E5C9-ABDA-4580-A8C0-B943CC88A480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F0E5C9-ABDA-4580-A8C0-B943CC88A480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F0E5C9-ABDA-4580-A8C0-B943CC88A480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0718DBCD-6D72-4223-9BD3-FB2389F25EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0718DBCD-6D72-4223-9BD3-FB2389F25EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0718DBCD-6D72-4223-9BD3-FB2389F25EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0718DBCD-6D72-4223-9BD3-FB2389F25EC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81EE8592-1C51-4603-BB04-BE80FA0CF281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81EE8592-1C51-4603-BB04-BE80FA0CF281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81EE8592-1C51-4603-BB04-BE80FA0CF281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81EE8592-1C51-4603-BB04-BE80FA0CF281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E42A6E-A6E0-42A3-9EB1-8B0AE0C13880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E42A6E-A6E0-42A3-9EB1-8B0AE0C13880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E42A6E-A6E0-42A3-9EB1-8B0AE0C13880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E42A6E-A6E0-42A3-9EB1-8B0AE0C13880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF159AA-CD6F-485C-A2CA-90067342FCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF159AA-CD6F-485C-A2CA-90067342FCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF159AA-CD6F-485C-A2CA-90067342FCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF159AA-CD6F-485C-A2CA-90067342FCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

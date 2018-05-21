@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE9ACF03-9AE6-4ADB-A80D-B0BC417292A9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XcBIMwebSys.WebCode</RootNamespace>
+    <AssemblyName>XcBIMwebSys.WebCode</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tmp.Web.Framework\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.5\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.5\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\MaterialController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Material.sql" />
+    <Content Include="App_Data\projectInfo.sql" />
+    <Content Include="App_Data\XcBIMwebSys.sql" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.extend.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\iconfont.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\page.css" />
+    <Content Include="Content\css\viewer.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\iconfont.svg" />
+    <Content Include="Content\images\model.png" />
+    <Content Include="Content\images\头像.jpg" />
+    <Content Include="Content\js\bodyTab.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\index.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\leftNav.js" />
+    <Content Include="Content\js\Material.js" />
+    <Content Include="Content\js\page.js" />
+    <Content Include="Content\js\UploadFile.js" />
+    <Content Include="Content\js\viewer.min.js" />
+    <Content Include="Content\layui\css\layui.css" />
+    <Content Include="Content\layui\css\layui.mobile.css" />
+    <Content Include="Content\layui\css\modules\code.css" />
+    <Content Include="Content\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="Content\layui\css\modules\laydate\icon.png" />
+    <Content Include="Content\layui\css\modules\laydate\laydate.css" />
+    <Content Include="Content\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="Content\layui\css\modules\layer\default\icon.png" />
+    <Content Include="Content\layui\css\modules\layer\default\layer.css" />
+    <Content Include="Content\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="Content\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="Content\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="Content\layui\font\iconfont.svg" />
+    <Content Include="Content\layui\images\face\0.gif" />
+    <Content Include="Content\layui\images\face\1.gif" />
+    <Content Include="Content\layui\images\face\10.gif" />
+    <Content Include="Content\layui\images\face\11.gif" />
+    <Content Include="Content\layui\images\face\12.gif" />
+    <Content Include="Content\layui\images\face\13.gif" />
+    <Content Include="Content\layui\images\face\14.gif" />
+    <Content Include="Content\layui\images\face\15.gif" />
+    <Content Include="Content\layui\images\face\16.gif" />
+    <Content Include="Content\layui\images\face\17.gif" />
+    <Content Include="Content\layui\images\face\18.gif" />
+    <Content Include="Content\layui\images\face\19.gif" />
+    <Content Include="Content\layui\images\face\2.gif" />
+    <Content Include="Content\layui\images\face\20.gif" />
+    <Content Include="Content\layui\images\face\21.gif" />
+    <Content Include="Content\layui\images\face\22.gif" />
+    <Content Include="Content\layui\images\face\23.gif" />
+    <Content Include="Content\layui\images\face\24.gif" />
+    <Content Include="Content\layui\images\face\25.gif" />
+    <Content Include="Content\layui\images\face\26.gif" />
+    <Content Include="Content\layui\images\face\27.gif" />
+    <Content Include="Content\layui\images\face\28.gif" />
+    <Content Include="Content\layui\images\face\29.gif" />
+    <Content Include="Content\layui\images\face\3.gif" />
+    <Content Include="Content\layui\images\face\30.gif" />
+    <Content Include="Content\layui\images\face\31.gif" />
+    <Content Include="Content\layui\images\face\32.gif" />
+    <Content Include="Content\layui\images\face\33.gif" />
+    <Content Include="Content\layui\images\face\34.gif" />
+    <Content Include="Content\layui\images\face\35.gif" />
+    <Content Include="Content\layui\images\face\36.gif" />
+    <Content Include="Content\layui\images\face\37.gif" />
+    <Content Include="Content\layui\images\face\38.gif" />
+    <Content Include="Content\layui\images\face\39.gif" />
+    <Content Include="Content\layui\images\face\4.gif" />
+    <Content Include="Content\layui\images\face\40.gif" />
+    <Content Include="Content\layui\images\face\41.gif" />
+    <Content Include="Content\layui\images\face\42.gif" />
+    <Content Include="Content\layui\images\face\43.gif" />
+    <Content Include="Content\layui\images\face\44.gif" />
+    <Content Include="Content\layui\images\face\45.gif" />
+    <Content Include="Content\layui\images\face\46.gif" />
+    <Content Include="Content\layui\images\face\47.gif" />
+    <Content Include="Content\layui\images\face\48.gif" />
+    <Content Include="Content\layui\images\face\49.gif" />
+    <Content Include="Content\layui\images\face\5.gif" />
+    <Content Include="Content\layui\images\face\50.gif" />
+    <Content Include="Content\layui\images\face\51.gif" />
+    <Content Include="Content\layui\images\face\52.gif" />
+    <Content Include="Content\layui\images\face\53.gif" />
+    <Content Include="Content\layui\images\face\54.gif" />
+    <Content Include="Content\layui\images\face\55.gif" />
+    <Content Include="Content\layui\images\face\56.gif" />
+    <Content Include="Content\layui\images\face\57.gif" />
+    <Content Include="Content\layui\images\face\58.gif" />
+    <Content Include="Content\layui\images\face\59.gif" />
+    <Content Include="Content\layui\images\face\6.gif" />
+    <Content Include="Content\layui\images\face\60.gif" />
+    <Content Include="Content\layui\images\face\61.gif" />
+    <Content Include="Content\layui\images\face\62.gif" />
+    <Content Include="Content\layui\images\face\63.gif" />
+    <Content Include="Content\layui\images\face\64.gif" />
+    <Content Include="Content\layui\images\face\65.gif" />
+    <Content Include="Content\layui\images\face\66.gif" />
+    <Content Include="Content\layui\images\face\67.gif" />
+    <Content Include="Content\layui\images\face\68.gif" />
+    <Content Include="Content\layui\images\face\69.gif" />
+    <Content Include="Content\layui\images\face\7.gif" />
+    <Content Include="Content\layui\images\face\70.gif" />
+    <Content Include="Content\layui\images\face\71.gif" />
+    <Content Include="Content\layui\images\face\8.gif" />
+    <Content Include="Content\layui\images\face\9.gif" />
+    <Content Include="Content\layui\layui.all.js" />
+    <Content Include="Content\layui\layui.js" />
+    <Content Include="Content\layui\lay\dest\layui.all.js" />
+    <Content Include="Content\layui\lay\modules\carousel.js" />
+    <Content Include="Content\layui\lay\modules\code.js" />
+    <Content Include="Content\layui\lay\modules\element.js" />
+    <Content Include="Content\layui\lay\modules\flow.js" />
+    <Content Include="Content\layui\lay\modules\form.js" />
+    <Content Include="Content\layui\lay\modules\jquery.js" />
+    <Content Include="Content\layui\lay\modules\laydate.js" />
+    <Content Include="Content\layui\lay\modules\layedit.js" />
+    <Content Include="Content\layui\lay\modules\layer.js" />
+    <Content Include="Content\layui\lay\modules\layim.js" />
+    <Content Include="Content\layui\lay\modules\laypage.js" />
+    <Content Include="Content\layui\lay\modules\laytpl.js" />
+    <Content Include="Content\layui\lay\modules\mobile.js" />
+    <Content Include="Content\layui\lay\modules\table.js" />
+    <Content Include="Content\layui\lay\modules\tree.js" />
+    <Content Include="Content\layui\lay\modules\upload.js" />
+    <Content Include="Content\layui\lay\modules\util.js" />
+    <Content Include="Content\Model\Bootstrap.html" />
+    <Content Include="Content\Model\iframe.html" />
+    <Content Include="Content\Model\index.html" />
+    <Content Include="Content\Model\jquery-ui.min.js" />
+    <Content Include="Content\Model\jquery.min.js" />
+    <Content Include="Content\Model\lmvworker.min.js" />
+    <Content Include="Content\Model\Num-6.html" />
+    <Content Include="Content\Model\Resource\____\3D\index-online.html" />
+    <Content Include="Content\Model\Resource\____\3D\index.html" />
+    <Content Include="Content\Model\Resource\____\3D\mat\102_5add8536225f5c9586591a6c791ba325.png" />
+    <Content Include="Content\Model\Resource\____\3D\mat\concrete.cast-in-place.flat.grey.1_b485a70657b0587667a5b8271c5bf750.jpg" />
+    <Content Include="Content\Model\res\environments\boardwalk_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\boardwalk_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\CoolLight_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\CoolLight_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\crossroads_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\crossroads_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\DarkSky_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\DarkSky_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\field_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\field_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\glacier_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\glacier_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\GreyRoom_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\GreyRoom_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\GridLight_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\GridLight_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\IDViz_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\IDViz_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\InfinityPool_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\InfinityPool_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\PhotoBooth_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\PhotoBooth_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\Plaza_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\Plaza_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\Reflection_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\Reflection_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\RimHighlights_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\RimHighlights_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\riverbank_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\riverbank_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\seaport_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\seaport_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\SharpHighlights_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\SharpHighlights_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\SnowField_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\SnowField_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\SoftLight_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\SoftLight_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\TranquilityBlue_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\TranquilityBlue_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\environments\WarmLight_irr.logluv.dds" />
+    <Content Include="Content\Model\res\environments\WarmLight_mipdrop.logluv.dds" />
+    <Content Include="Content\Model\res\locales\cs\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\de\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\en\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\es\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\fr\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\it\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\ja\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\ko\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\pl\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\pt-BR\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\ru\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\tr\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\zh-HANS\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\locales\zh-HANT\VCcrossRGBA8small.dds" />
+    <Content Include="Content\Model\res\textures\cardinalPoint.png" />
+    <Content Include="Content\Model\res\textures\centerMarker_X.png" />
+    <Content Include="Content\Model\res\textures\radial-fade-grid.png" />
+    <Content Include="Content\Model\res\textures\VCarrows.png" />
+    <Content Include="Content\Model\res\textures\VCarrowsS0.png" />
+    <Content Include="Content\Model\res\textures\VCarrowsS1.png" />
+    <Content Include="Content\Model\res\textures\VCcontext.png" />
+    <Content Include="Content\Model\res\textures\VCcontextS.png" />
+    <Content Include="Content\Model\res\textures\VCedge1.png" />
+    <Content Include="Content\Model\res\textures\VChome.png" />
+    <Content Include="Content\Model\res\textures\VChomeS.png" />
+    <Content Include="Content\Model\style.css" />
+    <Content Include="Content\Model\three.min.js" />
+    <Content Include="Content\Model\viewer3D.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="File\Demo\BatchImportAccount.xls" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font_tnyc012u2rlwstt9.woff" />
+    <Content Include="Content\fonts\iconfont.eot" />
+    <Content Include="Content\fonts\iconfont.ttf" />
+    <Content Include="Content\fonts\iconfont.woff" />
+    <Content Include="Content\json\navs.json" />
+    <Content Include="Content\layui\font\iconfont.eot" />
+    <Content Include="Content\layui\font\iconfont.ttf" />
+    <Content Include="Content\layui\font\iconfont.woff" />
+    <Content Include="Content\Model\.project" />
+    <Content Include="Content\Model\designDescription.json" />
+    <Content Include="Content\Model\index" />
+    <Content Include="Content\Model\index.bat" />
+    <Content Include="Content\Model\Resource\__\A101______ 16617\dwfx\A101______.dwfx" />
+    <Content Include="Content\Model\Resource\__\A102______ 16622\dwfx\A102______.dwfx" />
+    <Content Include="Content\Model\Resource\__\A103______ 831355\dwfx\A103______.dwfx" />
+    <Content Include="Content\Model\Resource\____\3D\0.pf" />
+    <Content Include="Content\Model\Resource\____\3D\1.pf" />
+    <Content Include="Content\Model\Resource\____\3D\3d.svf" />
+    <Content Include="Content\Model\Resource\____\3D\CameraDefinitions.bin" />
+    <Content Include="Content\Model\Resource\____\3D\CameraList.bin" />
+    <Content Include="Content\Model\Resource\____\3D\FragmentList.pack" />
+    <Content Include="Content\Model\Resource\____\3D\GeometryMetadata.pf" />
+    <Content Include="Content\Model\Resource\____\3D\LightDefinitions.bin" />
+    <Content Include="Content\Model\Resource\____\3D\LightList.bin" />
+    <Content Include="Content\Model\Resource\____\3D\Materials.json.gz" />
+    <Content Include="Content\Model\Resource\____\3D\objects_attrs.json.gz" />
+    <Content Include="Content\Model\Resource\____\3D\objects_avs.json.gz" />
+    <Content Include="Content\Model\Resource\____\3D\objects_ids.json.gz" />
+    <Content Include="Content\Model\Resource\____\3D\objects_offs.json.gz" />
+    <Content Include="Content\Model\Resource\____\3D\objects_vals.json.gz" />
+    <Content Include="Content\Model\res\locales\cs\allstrings.json" />
+    <Content Include="Content\Model\res\locales\de\allstrings.json" />
+    <Content Include="Content\Model\res\locales\en\allstrings.json" />
+    <Content Include="Content\Model\res\locales\es\allstrings.json" />
+    <Content Include="Content\Model\res\locales\fr\allstrings.json" />
+    <Content Include="Content\Model\res\locales\it\allstrings.json" />
+    <Content Include="Content\Model\res\locales\ja\allstrings.json" />
+    <Content Include="Content\Model\res\locales\ko\allstrings.json" />
+    <Content Include="Content\Model\res\locales\pl\allstrings.json" />
+    <Content Include="Content\Model\res\locales\pt-BR\allstrings.json" />
+    <Content Include="Content\Model\res\locales\ru\allstrings.json" />
+    <Content Include="Content\Model\res\locales\tr\allstrings.json" />
+    <Content Include="Content\Model\res\locales\zh-HANS\allstrings.json" />
+    <Content Include="Content\Model\res\locales\zh-HANT\allstrings.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\BatchAddView.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Account\Operate.cshtml" />
+    <Content Include="Views\Material\Index.cshtml" />
+    <Content Include="Views\Material\UploadView.cshtml" />
+    <Content Include="Views\Material\ViewPic.cshtml" />
+    <Content Include="Views\Material\DocView.cshtml" />
+    <Content Include="Views\Material\GetExcelView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Temp\" />
+    <Folder Include="fonts\" />
+    <Folder Include="Models\" />
+    <Folder Include="Temp\" />
+    <Folder Include="Views\Departments\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tmp.Core\Tmp.Core.csproj">
+      <Project>{90f0e5c9-abda-4580-a8c0-b943cc88a480}</Project>
+      <Name>Tmp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmp.Data\Tmp.Data.csproj">
+      <Project>{0718dbcd-6d72-4223-9bd3-fb2389f25ec4}</Project>
+      <Name>Tmp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmp.Service\Tmp.Service.csproj">
+      <Project>{81ee8592-1c51-4603-bb04-be80fa0cf281}</Project>
+      <Name>Tmp.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmp.Web.Framework\Tmp.Web.Framework.csproj">
+      <Project>{a0e42a6e-a6e0-42a3-9eb1-8b0ae0c13880}</Project>
+      <Name>Tmp.Web.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XcBIMwebSys.Service\XcBIMwebSys.Service.csproj">
+      <Project>{8df159aa-cd6f-485c-a2ca-90067342fca5}</Project>
+      <Name>XcBIMwebSys.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31120</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:31120/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

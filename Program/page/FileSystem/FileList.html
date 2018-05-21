@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>文件管理列表</title>
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+</head>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>文件管理</legend>
+            </fieldset>
+        </div>
+        <div class="layui-row">
+            <div class="pd-15 pull-left">
+                <a href="FileUpload.html">
+                    <button class="layui-btn" id="add"><i class="layui-icon">&#xe67c;</i>上传文件</button>
+                </a>
+            </div>
+            <div class="float-r">
+                <div class="layui-form" id="search-form">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <select name="">
+                                    <option value="">文件分类</option>
+                                    <option value="1">施工规范</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" placeholder="文件名" />
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" placeholder="上传人" />
+                            </div>
+                        </div>
+                        <button class="layui-btn" id="btn-search"><i class="iconfont icon-search"></i>搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <table id="FileTable" lay-filter="FileTable">
+            </table>
+        </div>
+    </div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['jquery', 'table', 'form'], function() {
+            var $ = layui.$,
+                table = layui.table,
+                form = layui.form;
+
+            table.render({
+                elem: '#FileTable',
+                cols: [
+                    [{
+                        checkbox: true
+                    }, {
+                        field: 'id',
+                        title: 'ID',
+                        sort: true,
+                        align: 'center',
+                        width:100
+                    }, {
+                        field: 'sort',
+                        title: '分类',
+                        align: 'center',
+                        width:100
+                    }, {
+                        field: 'FileName',
+                        title: '文件名',
+                        align: 'center',
+                        templet: function(d) {
+                            return '<i class="layui-icon">&#xe621;</i><a download="' + d.FileName + '" style="color:blue" href="' + d.DownloadUrl + '">' + d.FileName + '</a>';
+                        }
+                    }, {
+                        field: 'Profile',
+                        title: '说明',
+                        align: 'center'
+                    }, {
+                        field: 'Uploader',
+                        title: '上传人',
+                        align: 'center',
+                        width:100
+                    }, {
+                        field: 'UploadDate',
+                        title: '上传时间',
+                        align: 'center',
+                        width:150
+                    }, {
+                        fixed: 'right',
+                        align: 'center',
+                        toolbar:'#barDemo',
+                        width:150
+                    }]
+                ],
+                page: 'true', //开启分页
+                url: 'test.json', //数据接口
+                method: 'get',
+                done: function() {
+
+                }
+            });
+
+            //监听表格复选框选择
+            table.on('checkbox(FileTable)', function(obj){
+                console.log(obj)
+            });
+            //监听工具条
+            table.on('tool(FileTable)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'detail'){
+                    layer.msg('ID：'+ data.id + ' 的查看操作');
+                } else if(obj.event === 'del'){
+                    layer.confirm('真的删除行么', function(index){
+                        obj.del();
+                        layer.close(index);
+                    });
+                } else if(obj.event === 'edit'){
+                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                }
+            });
+
+            var $ = layui.$, active = {
+                getCheckData: function(){ //获取选中数据
+                    var checkStatus = table.checkStatus('idTest')
+                        ,data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                }
+                ,getCheckLength: function(){ //获取选中数目
+                    var checkStatus = table.checkStatus('idTest')
+                        ,data = checkStatus.data;
+                    layer.msg('选中了：'+ data.length + ' 个');
+                }
+                ,isAll: function(){ //验证是否全选
+                    var checkStatus = table.checkStatus('idTest');
+                    layer.msg(checkStatus.isAll ? '全选': '未全选')
+                }
+            };
+
+            $('.demoTable .layui-btn').on('click', function(){
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+
+        })
+    </script>
+</body>
+</html>

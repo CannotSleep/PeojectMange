@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>文件管理列表</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/page.css" />
+</head>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>文件管理</legend>
+            </fieldset>
+        </div>
+        <div class="layui-row">
+            <div class="pd-15 pull-left">
+                <a href="UploadView">
+                    <button class="layui-btn" id="add"><i class="layui-icon">&#xe67c;</i>上传文件</button>
+                </a>
+            </div>
+            <div class="float-r">
+                <div class="layui-form" id="search-form">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <select id="projectType" name="">
+                                    <option value="">文件分类</option>
+                                    <option value="施工规范">施工规范</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" id="fileName" placeholder="文件名" />
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" id="upUser" placeholder="上传人" />
+                            </div>
+                        </div>
+                        <button class="layui-btn" id="btn-search" onclick="btnSearch()"><i class="iconfont icon-search"></i>搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <table id="FileTable" lay-filter="FileTable"></table>
+        </div>
+
+        <div id="test1"></div>
+    </div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="down">下载</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script src="~/Content/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Content/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="~/Content/js/Material.js" charset="utf-8"></script>
+</body>
+</html>

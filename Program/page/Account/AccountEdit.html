@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>星层科技BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+    <style type="text/css">
+        #img-list img {
+            max-width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--顶部菜单-->
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>
+                    <a href="javascript:history.back(-1)">
+                        <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe65c;</i></button>
+                    </a>
+                    用户信息编辑
+                </legend>
+            </fieldset>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-col-md9">
+                <form action="" class="layui-form pd-20">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">账号:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" id="" value="" class="layui-input" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">姓名:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" id="" value="" class="layui-input" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">部门:</label>
+                        <div class="layui-input-block">
+                            <select name="">
+                                <option value=""></option>
+                                <option value="">研发部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">角色:</label>
+                        <div class="layui-input-block">
+                            <select name="">
+                                <option value=""></option>
+                                <option value="">项目管理员</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">职位:</label>
+                        <div class="layui-input-block">
+                            <select name="">
+                                <option value=""></option>
+                                <option value="">高级软件工程师</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">部门:</label>
+                        <div class="layui-input-block">
+                            <select name="" id="">
+                                <option value=""></option>
+                                <option value="研发部">研发部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">性别:</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="sex" value="男" title="男" checked="">
+                            <input type="radio" name="sex" value="女" title="女">
+                            <input type="radio" name="sex" value="保密" title="保密">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">头像:</label>
+                        <div class="layui-input-inline" style="width:120px ;">
+                            <button type="button" class="layui-btn" id="upload-btn"><i class="layui-icon" >&#xe61d;</i>点击上传</button>
+                        </div>
+                        <div id="img-list">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-col-md9 col-sm-offset-2">
+                <div class="btn-group">
+                    <button class="layui-btn ">提交</button>
+                    <button class="layui-btn layui-btn-cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['jquery', 'form', 'upload', 'layer'], function() {
+            var $ = layui.$,
+                form = layui.form,
+                upload = layui.upload,
+                layer = layui.layer;
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#upload-btn',
+                url: '/upload/',
+                before: function(obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function(index, file, result) {
+                        $('#img-list').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img" layer-src="' + result + '">')
+                    });
+                },
+                done: function(res) {
+                    //上传完毕回调
+                },
+                error: function() {
+                    //请求异常回调
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

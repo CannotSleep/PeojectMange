@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	</head>
+	<body>
+		<div class="AdminPageBody">
+			<div class="PageBody">
+				<div class="layui-fluid">
+					<div class="layui-row" style="height: 150px;">
+						<div class="layui-col-xs3">
+							<div class="ProfileBox userblue">
+								<i class="layui-icon">&#xe630;</i>
+							</div>
+							<div class="value">
+								<a href="">
+									<h1>27</h1>
+									<p>汇总信息</p>
+								</a>
+							</div>
+						</div>
+						<div class="layui-col-xs3">
+							<div class="ProfileBox userorange">
+								<i class="layui-icon">&#xe60a;</i>
+							</div>
+							<div class="value">
+								<a href="">
+									<h1>15</h1>
+									<p>成本列表</p>
+								</a>
+							</div>
+						</div>
+						<div class="layui-col-xs3">
+							<div class="ProfileBox usergreen">
+								<i class="layui-icon">&#xe64c;</i>
+							</div>
+							<div class="value">
+								<a href="">
+									<h1>12</h1>
+									<p>安全反馈</p>
+								</a>
+							</div>
+						</div>
+						<div class="layui-col-xs3">
+							<div class="ProfileBox userprimary">
+								<i class="layui-icon">&#xe63c;</i>
+							</div>
+							<div class="value">
+								<a href="Project/ModelsManagement.html">
+									<h1>67</h1>
+									<p>模型总量</p>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="layui-row" style="height: 450px;">
+						<div class="layui-col-xs6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h4 class="SystemProfile">系统概览</h4>
+								</div>
+								<div class="panel-body">
+									<table class="layui-table">
+										<tbody>
+											<tr>
+												<td>版本信息:</td>
+												<td>星层科技V1.828</td>
+											</tr>
+											<tr>
+												<td>开发人员:</td>
+												<td>星层科技研发部</td>
+											</tr>
+											<tr>
+												<td>当前登录用户:</td>
+												<td>冯家杰</td>
+											</tr>
+											<tr>
+												<td>网站目录:</td>
+												<td>未定义</td>
+											</tr>
+											<tr>
+												<td>服务器IP:</td>
+												<td>192.168.1.9</td>
+											</tr>
+											<tr>
+												<td>服务器版本:</td>
+												<td>IIS7.0</td>
+											</tr>
+											<tr>
+												<td>数据库版本:</td>
+												<td>MySQL 2016</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-xs-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h4 class="SystemProfile">系统公告</h4>
+								</div>
+								<div class="panel-body">
+									<p style="text-indent: 2em;">
+										星层科技为建筑全生命周期提供专业的、完整的BIM大数据解决方案，为客户提供有关设计、施工、成本及运维的综合技术咨询服务，业务范围涵盖基于BIM产品标准化、BIM碰撞检查及管线综合、BIM项目施工管理、工程量统计与造价、BIM数字展示、BIM绿色建筑分析、BIM运维管理、智慧城市等，及针对不同客户特定需求提供的技术研发服务。
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="layui-row" style="height: 250px;">
+						<div class="layui-col-xs-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h4 class="SystemProfile">数据统计</h4>
+								</div>
+								<div class="panel-body">
+									<div id="WebInfoChart">									
+									</div>									
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-xs-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h4 class="SystemProfile">最新消息</h4>
+								</div>
+								<div class="panel-body">
+									<table class="layui-table">
+										<thead>
+											<tr>
+												<th>类别</th>
+												<th>标题</th>
+												<th>时间</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>安全反馈</td>
+												<td>ADCX01号梁问题反馈</td>
+												<td>2017年8月28日16:42:06</td>
+											</tr>
+											<tr>
+												<td>质量反馈</td>
+												<td>ADCX01号梁质量反馈</td>
+												<td>2017年8月28日16:42:06</td>
+											</tr>
+											<tr>
+												<td>人员调整</td>
+												<td>李金明人事调整通知</td>
+												<td>2017年8月28日16:42:06</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		//JavaScript代码区域
+		layui.use(['element', 'form'], function() {
+			var element = layui.element,
+				form = layui.form;
+		});
+	
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('WebInfoChart'));
+	
+		// 指定图表的配置项和数据
+		var option = {
+			tooltip: {},
+			legend: {
+				data: ['网站信息']
+			},
+			xAxis: {
+				data: ["访问量", "索引量", "点击量", "链接数"]
+			},
+			yAxis: {},
+			series: [{
+				name: '网站信息',
+				type: 'bar',
+				data: [5, 20, 36, 10]
+			}]
+		};
+	
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+	</script>
+	</body>
+</html>

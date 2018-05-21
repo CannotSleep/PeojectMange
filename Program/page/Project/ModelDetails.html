@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>1号楼模型-BIM施工管理平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page.css" />
+    <style type="text/css">
+        .model-iframe {
+            width: 100%;
+            min-height: 800px;
+            text-align: left;
+            border: 0px;
+        }
+        
+        .box1,
+        .box2 {
+            width: 100%;
+        }
+        
+        .box1 {
+            height: 400px;
+            border-bottom: 2px #aaa solid;
+            border-top: 2px #aaa solid;
+        }
+        
+        .box2 {
+            height: 344px;
+            border-bottom: 2px #aaa solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <fieldset id="" class="layui-elem-field layui-field-title">
+                <legend>
+                    <a href="javascript:history.back(-1)">
+                        <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe65c;</i></button>
+                    </a>
+                    1号楼模型
+                </legend>
+            </fieldset>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md8">
+                <iframe src="../../Model/index.html" width="" height="" class="model-iframe"></iframe>
+            </div>
+            <div class="layui-col-md4">
+                <div class="box1">
+                    <!--这里是内容1-->
+                    <table class="layui-table CommonListTable mt-0">
+                        <tr>
+                            <td>模型名称</td>
+                            <td>韶关印雪精舍项目</td>
+                        </tr>
+                        <tr>
+                            <td>模型类型</td>
+                            <td>房屋建筑/基础设施</td>
+                        </tr>
+                        <tr>
+                            <td>结构形式</td>
+                            <td>框架结构</td>
+                        </tr>
+                        <tr>
+                            <td>维护人员</td>
+                            <td>周润东</td>
+                        </tr>
+                        <tr>
+                            <td>开始日期</td>
+                            <td>2018年4月26日</td>
+                        </tr>
+                        <tr>
+                            <td>结束日期</td>
+                            <td>2018年4月28日</td>
+                        </tr>
+                       
+                    </table>
+                </div>
+                <div class="box2">
+                    <!--这里是内容2-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['form', 'jquery'], function() {
+            var form = layui.form,
+                $ = layui.$;
+        })
+    </script>
+</body>
+</html>
