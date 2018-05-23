@@ -29,11 +29,45 @@ namespace Tmp.Data.Entity
     [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "2.17.1.0")]
     public partial class FakeMyDbContext : IMyDbContext
     {
-        public DbSet<MaterialInfo> MaterialInfoes { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountOfRoles> AccountOfRoles { get; set; }
+        public DbSet<BuildingModel> BuildingModels { get; set; }
+        public DbSet<CodeTable> CodeTables { get; set; }
+        public DbSet<Departments> Departments { get; set; }
+        public DbSet<ErrorInfo> ErrorInfoes { get; set; }
+        public DbSet<FileMange> FileManges { get; set; }
+        public DbSet<FileModular> FileModulars { get; set; }
+        public DbSet<GanttLink> GanttLinks { get; set; }
+        public DbSet<GanttTask> GanttTasks { get; set; }
+        public DbSet<Menus> Menus { get; set; }
+        public DbSet<ModelInfo> ModelInfoes { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<ProjectInfo> ProjectInfoes { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<VersionControl> VersionControls { get; set; }
 
         public FakeMyDbContext()
         {
-            MaterialInfoes = new FakeDbSet<MaterialInfo>("tbint");
+            Accounts = new FakeDbSet<Account>("ID");
+            AccountOfRoles = new FakeDbSet<AccountOfRoles>("ID");
+            BuildingModels = new FakeDbSet<BuildingModel>("ID");
+            CodeTables = new FakeDbSet<CodeTable>("ID");
+            Departments = new FakeDbSet<Departments>("ID");
+            ErrorInfoes = new FakeDbSet<ErrorInfo>("ID");
+            FileManges = new FakeDbSet<FileMange>("FileID");
+            FileModulars = new FakeDbSet<FileModular>("FileModularID");
+            GanttLinks = new FakeDbSet<GanttLink>("Id");
+            GanttTasks = new FakeDbSet<GanttTask>("Id");
+            Menus = new FakeDbSet<Menus>("ID");
+            ModelInfoes = new FakeDbSet<ModelInfo>("ID");
+            Permissions = new FakeDbSet<Permission>("ID");
+            ProjectInfoes = new FakeDbSet<ProjectInfo>("ID");
+            Roles = new FakeDbSet<Roles>("ID");
+            Schedules = new FakeDbSet<Schedule>("ID");
+            sysdiagrams = new FakeDbSet<sysdiagrams>("diagramid");
+            VersionControls = new FakeDbSet<VersionControl>("Key");
 
             InitializePartial();
         }

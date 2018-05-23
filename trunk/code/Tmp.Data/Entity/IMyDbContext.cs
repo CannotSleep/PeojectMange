@@ -28,7 +28,24 @@ namespace Tmp.Data.Entity
 {
     public interface IMyDbContext : IDisposable
     {
-        DbSet<MaterialInfo> MaterialInfoes { get; set; } // MaterialInfo
+        DbSet<Account> Accounts { get; set; } // tbLOG_Account
+        DbSet<AccountOfRoles> AccountOfRoles { get; set; } // tbLOG_AccountOfRoles
+        DbSet<BuildingModel> BuildingModels { get; set; } // BuildingModel
+        DbSet<CodeTable> CodeTables { get; set; } // tbCOM_CodeTable
+        DbSet<Departments> Departments { get; set; } // tbLOG_Departments
+        DbSet<ErrorInfo> ErrorInfoes { get; set; } // tbLOG_ErrorInfo
+        DbSet<FileMange> FileManges { get; set; } // FileMange
+        DbSet<FileModular> FileModulars { get; set; } // FileModular
+        DbSet<GanttLink> GanttLinks { get; set; } // GanttLink
+        DbSet<GanttTask> GanttTasks { get; set; } // GanttTask
+        DbSet<Menus> Menus { get; set; } // tbLOG_Menus
+        DbSet<ModelInfo> ModelInfoes { get; set; } // ModelInfo
+        DbSet<Permission> Permissions { get; set; } // tbLOG_Permission
+        DbSet<ProjectInfo> ProjectInfoes { get; set; } // ProjectInfo
+        DbSet<Roles> Roles { get; set; } // tbLOG_Roles
+        DbSet<Schedule> Schedules { get; set; } // Schedule
+        DbSet<sysdiagrams> sysdiagrams { get; set; } // sysdiagrams
+        DbSet<VersionControl> VersionControls { get; set; } // tbCOM_VersionControl
 
         int SaveChanges();
         

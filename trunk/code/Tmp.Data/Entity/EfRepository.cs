@@ -6,6 +6,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Tmp.Data.Entity
 {
@@ -22,6 +23,9 @@ namespace Tmp.Data.Entity
         #endregion
 
         #region Properties
+
+       
+
 
         public  IDbSet<T> Entities
         {
@@ -275,6 +279,27 @@ namespace Tmp.Data.Entity
             this.SaveChanges();
         }
 
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="">Entities</param>
+        public List<T> GetFileList(Expression<Func<T, bool>> where, Expression<Func<T, dynamic>> order,int pageIndex,int pageSize)
+        {
+            var list = _context.Set<T>().Where(where).OrderByDescending(order).Skip((pageIndex-1)*pageSize).Take(pageSize).ToList();
+            
+            return list;
+        }
+
+        /// <summary>
+        /// 表数据总数查询
+        /// </summary>
+        /// <param name="">Entities</param>
+        public int GetDataTotal(Expression<Func<T, bool>> where)
+        {
+            var total = _context.Set<T>().Where(where).Count();
+
+            return total;
+        }
         #endregion
 
 

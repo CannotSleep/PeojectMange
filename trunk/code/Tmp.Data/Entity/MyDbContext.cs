@@ -28,7 +28,24 @@ namespace Tmp.Data.Entity
 {
     public partial class MyDbContext : DbContext, IMyDbContext
     {
-        public DbSet<MaterialInfo> MaterialInfoes { get; set; } // MaterialInfo
+        public DbSet<Account> Accounts { get; set; } // tbLOG_Account
+        public DbSet<AccountOfRoles> AccountOfRoles { get; set; } // tbLOG_AccountOfRoles
+        public DbSet<BuildingModel> BuildingModels { get; set; } // BuildingModel
+        public DbSet<CodeTable> CodeTables { get; set; } // tbCOM_CodeTable
+        public DbSet<Departments> Departments { get; set; } // tbLOG_Departments
+        public DbSet<ErrorInfo> ErrorInfoes { get; set; } // tbLOG_ErrorInfo
+        public DbSet<FileMange> FileManges { get; set; } // FileMange
+        public DbSet<FileModular> FileModulars { get; set; } // FileModular
+        public DbSet<GanttLink> GanttLinks { get; set; } // GanttLink
+        public DbSet<GanttTask> GanttTasks { get; set; } // GanttTask
+        public DbSet<Menus> Menus { get; set; } // tbLOG_Menus
+        public DbSet<ModelInfo> ModelInfoes { get; set; } // ModelInfo
+        public DbSet<Permission> Permissions { get; set; } // tbLOG_Permission
+        public DbSet<ProjectInfo> ProjectInfoes { get; set; } // ProjectInfo
+        public DbSet<Roles> Roles { get; set; } // tbLOG_Roles
+        public DbSet<Schedule> Schedules { get; set; } // Schedule
+        public DbSet<sysdiagrams> sysdiagrams { get; set; } // sysdiagrams
+        public DbSet<VersionControl> VersionControls { get; set; } // tbCOM_VersionControl
         
         static MyDbContext()
         {
@@ -69,14 +86,48 @@ namespace Tmp.Data.Entity
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Configurations.Add(new MaterialInfoConfiguration());
+            modelBuilder.Configurations.Add(new AccountConfiguration());
+            modelBuilder.Configurations.Add(new AccountOfRolesConfiguration());
+            modelBuilder.Configurations.Add(new BuildingModelConfiguration());
+            modelBuilder.Configurations.Add(new CodeTableConfiguration());
+            modelBuilder.Configurations.Add(new DepartmentsConfiguration());
+            modelBuilder.Configurations.Add(new ErrorInfoConfiguration());
+            modelBuilder.Configurations.Add(new FileMangeConfiguration());
+            modelBuilder.Configurations.Add(new FileModularConfiguration());
+            modelBuilder.Configurations.Add(new GanttLinkConfiguration());
+            modelBuilder.Configurations.Add(new GanttTaskConfiguration());
+            modelBuilder.Configurations.Add(new MenusConfiguration());
+            modelBuilder.Configurations.Add(new ModelInfoConfiguration());
+            modelBuilder.Configurations.Add(new PermissionConfiguration());
+            modelBuilder.Configurations.Add(new ProjectInfoConfiguration());
+            modelBuilder.Configurations.Add(new RolesConfiguration());
+            modelBuilder.Configurations.Add(new ScheduleConfiguration());
+            modelBuilder.Configurations.Add(new sysdiagramsConfiguration());
+            modelBuilder.Configurations.Add(new VersionControlConfiguration());
 
             OnModelCreatingPartial(modelBuilder);
         }
 
         public static DbModelBuilder CreateModel(DbModelBuilder modelBuilder, string schema)
         {
-            modelBuilder.Configurations.Add(new MaterialInfoConfiguration(schema));
+            modelBuilder.Configurations.Add(new AccountConfiguration(schema));
+            modelBuilder.Configurations.Add(new AccountOfRolesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BuildingModelConfiguration(schema));
+            modelBuilder.Configurations.Add(new CodeTableConfiguration(schema));
+            modelBuilder.Configurations.Add(new DepartmentsConfiguration(schema));
+            modelBuilder.Configurations.Add(new ErrorInfoConfiguration(schema));
+            modelBuilder.Configurations.Add(new FileMangeConfiguration(schema));
+            modelBuilder.Configurations.Add(new FileModularConfiguration(schema));
+            modelBuilder.Configurations.Add(new GanttLinkConfiguration(schema));
+            modelBuilder.Configurations.Add(new GanttTaskConfiguration(schema));
+            modelBuilder.Configurations.Add(new MenusConfiguration(schema));
+            modelBuilder.Configurations.Add(new ModelInfoConfiguration(schema));
+            modelBuilder.Configurations.Add(new PermissionConfiguration(schema));
+            modelBuilder.Configurations.Add(new ProjectInfoConfiguration(schema));
+            modelBuilder.Configurations.Add(new RolesConfiguration(schema));
+            modelBuilder.Configurations.Add(new ScheduleConfiguration(schema));
+            modelBuilder.Configurations.Add(new sysdiagramsConfiguration(schema));
+            modelBuilder.Configurations.Add(new VersionControlConfiguration(schema));
             return modelBuilder;
         }
 

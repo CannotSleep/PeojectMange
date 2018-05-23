@@ -14,7 +14,7 @@ namespace XcBIMwebSys.Service.Interface
     {
         //Account GetAccount();
 
-        //bool BatchAdd(DataTable dt);
+       //bool BatchAdd(DataTable dt);
 
         //List<AccountDto> GteAccountList(AccountDto model);
     }

@@ -81,25 +81,119 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\CodeTable.cs" />
-    <Compile Include="Entity\CodeTableConfiguration.cs" />
+    <Compile Include="Entity\Account.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AccountConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AccountOfRoles.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AccountOfRolesConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BuildingModel.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BuildingModelConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CodeTable.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CodeTableConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Departments.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DepartmentsConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\EfRepository.cs" />
+    <Compile Include="Entity\ErrorInfo.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErrorInfoConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\FakeDbSet.cs">
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\FakeMyDbContext.cs">
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\FileMange.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FileMangeConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FileModular.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FileModularConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GanttLink.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GanttLinkConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GanttTask.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GanttTaskConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\IMyDbContext.cs">
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\MaterialInfo.cs">
+    <Compile Include="Entity\Menus.cs">
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\MaterialInfoConfiguration.cs">
+    <Compile Include="Entity\MenusConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ModelInfo.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ModelInfoConfiguration.cs">
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\MyDbContext.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Permission.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PermissionConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ProjectInfo.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ProjectInfoConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Roles.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\RolesConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Schedule.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ScheduleConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagrams.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagramsConfiguration.cs">
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Template.cs">
@@ -107,8 +201,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Template.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\VersionControl.cs" />
-    <Compile Include="Entity\VersionControlConfiguration.cs" />
+    <Compile Include="Entity\VersionControl.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\VersionControlConfiguration.cs">
+      <DependentUpon>Template.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryFactory.cs" />
   </ItemGroup>

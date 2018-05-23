@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Tmp.Core.Dependency;
 
 namespace Tmp.Core.Data
@@ -86,5 +87,9 @@ namespace Tmp.Core.Data
 
 
         bool SwitchDb(SwitchDbExcuteFun fun, EDbType e);
+
+        List<T> GetFileList(Expression<Func<T, bool>> where, Expression<Func<T, dynamic>> order, int pageIndex,int pageSize);
+
+        int GetDataTotal(Expression<Func<T, bool>> where);
     }
 }

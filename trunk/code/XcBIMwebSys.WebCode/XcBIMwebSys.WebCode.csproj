@@ -108,7 +108,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
-    <Compile Include="Controllers\MaterialController.cs" />
+    <Compile Include="Controllers\FileMangeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -117,7 +117,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Material.sql" />
     <Content Include="App_Data\projectInfo.sql" />
     <Content Include="App_Data\XcBIMwebSys.sql" />
     <Content Include="Content\bootstrap.css" />
@@ -137,7 +136,6 @@
     <Content Include="Content\js\index.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\leftNav.js" />
-    <Content Include="Content\js\Material.js" />
     <Content Include="Content\js\page.js" />
     <Content Include="Content\js\UploadFile.js" />
     <Content Include="Content\js\viewer.min.js" />
@@ -416,11 +414,11 @@
     <Content Include="Views\Account\BatchAddView.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Account\Operate.cshtml" />
-    <Content Include="Views\Material\Index.cshtml" />
-    <Content Include="Views\Material\UploadView.cshtml" />
-    <Content Include="Views\Material\ViewPic.cshtml" />
-    <Content Include="Views\Material\DocView.cshtml" />
-    <Content Include="Views\Material\GetExcelView.cshtml" />
+    <Content Include="Views\FileMange\Index.cshtml" />
+    <Content Include="Views\FileMange\UploadView.cshtml" />
+    <Content Include="Views\FileMange\ViewPic.cshtml" />
+    <Content Include="Views\FileMange\DocView.cshtml" />
+    <Content Include="Views\FileMange\GetExcelView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Temp\" />
