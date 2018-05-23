@@ -156,17 +156,19 @@
                 table.on('tool(FileTable)', function (obj) {
                     var data = obj.data;
                     if (obj.event === 'detail') {
-                        fileShow(data.tbnamebefore, data.tbaddress, data.tbtype);
+                       
+                        fileShow(data.NameBefore, data.FilePath, data.FileType);
                         // layer.msg('ID：' + data.tbnamebefore + ' 的查看操作');
 
                     } else if (obj.event === 'del') {
                         layer.confirm('真的删除行么', function (index) {
                             obj.del();
-                            fileDelete(data.tbnamebefore);
+                            fileDelete(data.FileID);
                             layer.close(index);
                         });
                     } else if (obj.event === 'down') {
-                        fileDown(data.tbnamebefore)
+                       
+                        fileDown(data.NameBefore)
                         //layer.alert('编辑行：<br>' + JSON.stringify(data))
 
                     }
@@ -198,15 +200,15 @@
 
             ///文件删除方法
             function fileDelete(param2) {
-
+                alert(param2)
                 $.ajax({
-                    url: "/Material/deleteFileByFileName", //CommonController下的CancelTaskDeal方法
+                    url: "/FileMange/deleteFileByID", //CommonController下的CancelTaskDeal方法
                     type: "get",
                     async: false,
                     cache: false,
                     dataType: "json",
                     data: {
-                        name: param2
+                        id: param2
                     },
                     success: function (r) { //没有异常，获取返回值  r 为FeedbackModel 对象
                         //上传完毕回调
@@ -233,7 +235,7 @@
                 //var name1= myArray[param1].tb_name_now
 
 
-                var url = '@Url.Content("~/Material/downloadFile")';//下载文件你的action
+                var url = '@Url.Content("~/FileMange/downloadFile")';//下载文件你的action
 
                 var form = $("<form>");
 
@@ -243,13 +245,13 @@
 
                 form.attr('method', 'post');
 
-                form.attr('action', '/Material/downloadFile');
+                form.attr('action', '/FileMange/downloadFile');
 
                 var input1 = $('<input>');
 
                 input1.attr('type', 'hidden');
 
-                input1.attr('name', 'fileName');
+                input1.attr('name', 'filePath');
 
                 input1.attr('value', param2);
 
@@ -266,12 +268,12 @@
             function fileShow(param1, param2, param3) {
 
                 switch (param3) {
-                    case 0:
+                    case "jpg":
                         //打开图片
 
-                        var str = param2 + "\\" + param1;
+                        var str = param2;
 
-                        var strName = param1;
+                        var strName = param2;
 
                         document.cookie = 'picname=' + param1;
 
@@ -279,11 +281,11 @@
 
                         break;
 
-                    case 1:
+                    case "1":
                         //打开word、excel文档
                         var strName = param1;
 
-                        var str = param2 + "\\" + param1;
+                        var str = param2;
 
                         document.cookie = 'docname=' + param1;
 
@@ -292,6 +294,14 @@
                         break;
 
                     default:
+                        //打开word、excel文档
+                        var strName = param2;
+
+                        var str = param2 + "\\" + param2;
+
+                        document.cookie = 'docname=' + param1;
+
+                        window.open("DocView");
                         break;
                 }
 
@@ -308,17 +318,17 @@
 
 
 
-                if (userName == "") {
-                    alert("请填写上传人");
-                }
+                //if (userName == "") {
+                //    alert("请填写上传人");
+                //}
 
-                if (fileName == "") {
-                    alert("请填写文件名");
-                }
+                //if (fileName == "") {
+                //    alert("请填写文件名");
+                //}
 
-                if (projectType == "") {
-                    alert("请选择文件分类");
-                }
+                //if (projectType == "") {
+                //    alert("请选择文件分类");
+                //}
 
                 //if (userName != "" && fileName != "" && projectType!="") {
                 tableIns.reload({

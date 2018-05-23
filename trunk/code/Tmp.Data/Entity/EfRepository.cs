@@ -300,6 +300,17 @@ namespace Tmp.Data.Entity
 
             return total;
         }
+
+        /// <summary>
+        /// FileModular根据文件id外键查询
+        /// </summary>
+        /// <param name="">Entities</param>
+        public List<T> GetFileModular(Expression<Func<T, bool>> where, Expression<Func<T, dynamic>> order)
+        {
+            var list = _context.Set<T>().Where(where).OrderByDescending(order).ToList();
+            return list;
+        }
+
         #endregion
 
 

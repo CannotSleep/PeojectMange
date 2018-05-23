@@ -16,6 +16,7 @@ using Tmp.Data.Entity;
 using XcBIMwebSys.Service.Dto;
 using XcBIMwebSys.Service.Interface;
 using XcBIMwebSys.Service.Tools;
+using System.Linq.Expressions;
 
 namespace XcBIMwebSys.Service.Implement
 {
@@ -24,7 +25,7 @@ namespace XcBIMwebSys.Service.Implement
 
         IRepository<FileMange> _materialRepository;
         IRepository<FileModular> _materialRepository_fm;
-
+        
 
         FileMangeTool fileMangeTool = new FileMangeTool();
 
@@ -82,7 +83,7 @@ namespace XcBIMwebSys.Service.Implement
             var gu = Guid.NewGuid();
 
             //文件名修改
-            string NameNow = NameBefore+"."+gu;
+            string NameNow = NameBefore;
 
             string sPath = Path.Combine(FilePath, NameNow);
 
@@ -91,7 +92,7 @@ namespace XcBIMwebSys.Service.Implement
             string date = System.DateTime.Now.ToString();
 
             //文件路径加密
-            FilePath = fileMangeTool.PathEncryption(FilePath+"\\"+NameNow);
+            FilePath = fileMangeTool.DESEncrypt(FilePath+"\\"+NameNow,"12345678","87654321");
 
 
             //文件实体类
@@ -283,12 +284,33 @@ namespace XcBIMwebSys.Service.Implement
         /// <param name="Size">文件大小</param>
         /// <param name="UserId">用户id</param>
         /// <param name="FileType">文件后缀类型</param>
-        public List<FileMange> getFileList(string page,string limit,string fileName, string fileType,int jduge)
+        public List<FileMange> getFileList(string page,string limit,string fileName, string fileType,string userName)
         {
             int anum = int.Parse(page);
 
             int bnum = int.Parse(limit);
 
+            Expression<Func<FileMange, bool>> where = (m => m.FileID != null);
+            #region
+            //switch (jduge){
+            //    case 1:
+            //        where = m => m.NameBefore.Contains(fileName);
+            //         break;
+            //    case 2:
+            //        m.FileCategory.Contains(fileType)
+            //        break;
+            //    case 3:
+            //        m.UserName.Contains(userName)
+            //        break;
+            //    case 4:
+
+            //        break;
+            //    default:
+            //        break;
+            //}
+            #endregion
+
+            List<FileMange> list = _materialRepository.GetFileList(where, m => m.Date, anum, bnum);
             #region
             //SqlParameter[] parameters = { };
 
@@ -309,7 +331,26 @@ namespace XcBIMwebSys.Service.Implement
             //    sql = sqlb;
             //}
             #endregion
-            List<FileMange> list = _materialRepository.GetFileList(m=>m.FileID!=null,m=>m.Date,anum,bnum);
+            //待改进 条件叠加
+            if (userName != null && userName != "")
+            {
+                where = (m => m.UserName.Contains(userName));
+                list= _materialRepository.GetFileList(where, m => m.Date, anum, bnum);
+            }
+            if (fileName != null && fileName != "" )
+            {
+                where = (m => m.NameBefore.Contains(fileName));
+                list = _materialRepository.GetFileList(where, m => m.Date, anum, bnum);
+            }
+            if (fileType != null && fileType != "" )
+            {
+                where = (m =>m.FileCategory.Contains(fileType));
+                list = _materialRepository.GetFileList(where, m => m.Date, anum, bnum);
+            }
+
+            foreach (FileMange fm in list) {
+                fm.FilePath = fileMangeTool.PathEncryption(fm.FilePath,"12345678", "87654321");
+            }
 
             #region
             //var dataSet = DbHelperSql.Query(DbHelperSql.DefaultUpdateConn,sql);
@@ -465,27 +506,46 @@ namespace XcBIMwebSys.Service.Implement
             return model;
         }
 
-        public bool deleteFile(string path,string name)
+        public bool deleteFile(string path,string id)
         {
+            try {
+                Guid gu = new Guid(id);
 
-            System.IO.File.Delete(path);
+                
 
-            SqlParameter[] parameters = {
-                        new SqlParameter("@tb_name_before", SqlDbType.VarChar,500)
-             };
+                FileMange fm = _materialRepository.GetById(gu);
 
-            parameters[0].Value = name;
+
+                System.IO.File.Delete(path + fm.NameBefore);
+
+                List<FileModular> list = _materialRepository_fm.GetFileModular( m=>m.RefFIleID==gu, m => m.FileType);
+
+                foreach (FileModular fmu in list) {
+                _materialRepository_fm.Delete(fmu);
+                }
+
+                _materialRepository.Delete(fm);
+                     return true;
+                } catch (Exception ex){
+                    return false;
+                }
+                
+            //SqlParameter[] parameters = {
+            //            new SqlParameter("@tb_name_before", SqlDbType.VarChar,500)
+            // };
+
+            //parameters[0].Value = name;
          
 
-            var dset = DbHelperSql.RunProcedure(DbHelperSql.DefaultUpdateConn, "FileMange_Delete", parameters, "FileMange");
-            if (dset != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //var dset = DbHelperSql.RunProcedure(DbHelperSql.DefaultUpdateConn, "FileMange_Delete", parameters, "FileMange");
+            //if (dset != null)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
 
         public Stream downFile(string path)
@@ -504,7 +564,7 @@ namespace XcBIMwebSys.Service.Implement
             return stream;
         }
 
-        public string getTotal(string tableName,  string fileName, string fileType,int jduge)
+        public string getTotal(string tableName,  string fileName, string fileType,string userName)
         {
             //string sql = "select count(*) from " + tableName + " where " + " CHARINDEX('" + fileName + "',tb_name_before)>0";
 
@@ -526,7 +586,28 @@ namespace XcBIMwebSys.Service.Implement
 
             //var dataCount = DbHelperSql.GetSingle(DbHelperSql.DefaultUpdateConn, sql);
 
-            int count = _materialRepository.GetDataTotal(m => m.FileID != null);
+            Expression<Func<FileMange, bool>> where = (m => m.FileID != null);
+
+            int count = _materialRepository.GetDataTotal(where);        
+
+            //待改进 条件叠加
+            if (userName != null && userName != "")
+            {
+                where = (m => m.UserName.Contains(userName));
+                count = _materialRepository.GetDataTotal(where);
+            }
+            if (fileName != null && fileName != "")
+            {
+                where = (m => m.NameBefore.Contains(fileName));
+                count = _materialRepository.GetDataTotal(where);
+            }
+            if (fileType != null && fileType != "")
+            {
+                where = (m => m.FileCategory.Contains(fileType));
+                count = _materialRepository.GetDataTotal(where);
+            }
+
+           
 
             return count + "";
         }

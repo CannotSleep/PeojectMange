@@ -27,13 +27,13 @@ namespace XcBIMwebSys.Service.Interface
         /// <param name="FileExplain">文件说明</param>
         string UploadFile(HttpPostedFileBase file,string NameBefore,int Size,Guid UserId,string FileType,string FilePath,Guid PeojectId,string FileCategory,string FileExplain,string UserName,string ProjectName);
 
-        List<FileMange> getFileList(string page,string limit,string fileName,string fileType,int jduge);
+        List<FileMange> getFileList(string page,string limit,string fileName,string fileType, string userName);
 
         Boolean deleteFile(string path,string name);
 
         Stream downFile(string name);
 
-        string getTotal(string tableName,string fileName, string fileType,int jduge);
+        string getTotal(string tableName,string fileName, string fileType, string userName);
 
         string readExcel(string exePath);
 

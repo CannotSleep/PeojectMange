@@ -91,5 +91,7 @@ namespace Tmp.Core.Data
         List<T> GetFileList(Expression<Func<T, bool>> where, Expression<Func<T, dynamic>> order, int pageIndex,int pageSize);
 
         int GetDataTotal(Expression<Func<T, bool>> where);
+
+        List<T> GetFileModular(Expression<Func<T, bool>> where, Expression<Func<T, dynamic>> order);
     }
 }

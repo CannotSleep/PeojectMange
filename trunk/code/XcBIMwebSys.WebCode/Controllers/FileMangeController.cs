@@ -129,26 +129,29 @@ namespace XcBIMwebSys.WebCode.Controllers
 
             string fileType = Request.Params["projectType"];
 
-            int a = 1;
-            if (userName == "" || fileName == "" || fileType == ""||userName==null||fileName==null||fileType==null)
-            {
-                a = 0;
-            }
+            //int a = 4;
+            //if (userName == "" || fileName == "" || fileType == ""||userName==null||fileName==null||fileType==null){
+            //    //a = 0;
+            //    userName = "";
+            //}
 
-            if (userName==null||userName=="") {
-                userName = ".";
-            }
-            if (fileName==null||fileName=="") {
-                fileName = ".";
-            }
-            if (fileType==null||fileType=="") {
-                fileType = ".";
-            }
+            //if (userName==null||userName=="") {
+            //    a = 1;
+            //    //userName = ".";
+            //}
+            //if (fileName==null||fileName=="") {
+            //    //a = 2;
+            //    fileName = ".";
+            //}
+            //if (fileType==null||fileType=="") {
+            //    // a = 3;
+            //    fileType = ".";
+            //}
           
 
-            var orderLs = _materiaService.getFileList(page,limit,fileName,fileType,a);
+            var orderLs = _materiaService.getFileList(page,limit,fileName,fileType,userName);
 
-            string count = _materiaService.getTotal("FileMange", fileName, fileType,a);
+            string count = _materiaService.getTotal("FileMange", fileName, fileType,userName);
            
             //string dd = Newtonsoft.Json.JsonConvert.SerializeObject(orderLs).ToString();
 
@@ -186,14 +189,14 @@ namespace XcBIMwebSys.WebCode.Controllers
         /// 根据文件名称删除文件
         /// </summary>
         [HttpGet]
-        public int deleteFileByFileName(string name)
+        public int deleteFileByID(string id)
         {
 
-            var filePath = Server.MapPath("~/Temp/" + "123654"+"/");
+            var filePath = Server.MapPath("~/Temp/" + "/测试项目一/1234"+"/");
 
-            filePath = filePath + name;
+            
 
-            if (_materiaService.deleteFile(filePath, name))
+            if (_materiaService.deleteFile(filePath, id))
             {
                 return 1;
             }
@@ -209,23 +212,22 @@ namespace XcBIMwebSys.WebCode.Controllers
         /// 下载文件方法
         /// </summary>
         /// 
-        
         public FileResult downloadFile()
         {
             string filePath = "";
 
-            string fileName = Request["fileName"];
+            string fileName = Request["filePath"];
 
-            string[] strArray = fileName.Split('-');
+            //string[] strArray = fileName.Split('-');
 
-            string fileName2 = strArray[0];
+            //string fileName2 = strArray[0];
 
-            string path1 = Server.MapPath("~/Temp/" + "123654/");
+            string path1 = Server.MapPath("~/Temp/" + "测试项目一/1234/");
 
             filePath = path1 + fileName;
 
 
-            return File(_materiaService.downFile(filePath), "application/octed-stream", HttpContext.Request.Browser.Browser == "IE" ? Url.Encode(fileName2) : fileName2);
+            return File(_materiaService.downFile(filePath), "application/octed-stream", HttpContext.Request.Browser.Browser == "IE" ? Url.Encode(fileName) : fileName);
         }
 
 

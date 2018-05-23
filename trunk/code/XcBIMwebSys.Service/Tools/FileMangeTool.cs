@@ -104,43 +104,64 @@ namespace XcBIMwebSys.Service.Tools
 
 
 
-        /// <summary>
-        /// DES加密解密
-        /// </summary>
-        /// <param name="filePath">文件实际路径</param>
-        /// <returns></returns>
-        public string PathEncryption(string filePath)
+        /// <summary>  
+        /// C# DES解密方法  
+        /// </summary>  
+        /// <param name="encryptedValue">待解密的字符串</param>  
+        /// <param name="key">密钥</param>  
+        /// <param name="iv">向量</param>  
+        /// <returns>解密后的字符串</returns>  
+        public string PathEncryption(string encryptedValue, string key, string iv)
         {
-            DESCryptoServiceProvider DesCSP = new DESCryptoServiceProvider();
-            byte[] buffer;
-            MemoryStream ms = new MemoryStream();//先创建 一个内存流
-            CryptoStream cryStream = new CryptoStream(ms, DesCSP.CreateEncryptor(), CryptoStreamMode.Write);//将内存流连接到加密转换流
-            StreamWriter sw = new StreamWriter(cryStream);
-            sw.WriteLine(filePath);//将要加密的字符串写入加密转换流
-            sw.Close();
-            cryStream.Close();
-            buffer = ms.ToArray();//将加密后的流转换为字节数组
-            return Convert.ToBase64String(buffer);//将加密后的字节数组转换为字符串
+            using (DESCryptoServiceProvider sa =
+                     new DESCryptoServiceProvider
+                { Key = Encoding.UTF8.GetBytes(key), IV = Encoding.UTF8.GetBytes(iv) })
+            {
+                using (ICryptoTransform ct = sa.CreateDecryptor())
+                {
+                    byte[] byt = Convert.FromBase64String(encryptedValue);
+
+                    using (var ms = new MemoryStream())
+                    {
+                        using (var cs = new CryptoStream(ms, ct, CryptoStreamMode.Write))
+                        {
+                            cs.Write(byt, 0, byt.Length);
+                            cs.FlushFinalBlock();
+                        }
+                        return Encoding.UTF8.GetString(ms.ToArray());
+                    }
+                }
+            }
         }
 
 
-        /// <summary>
-        /// DES加密解密
-        /// </summary>
-        /// <param name="filePath">文件实际路径</param>
-        /// <returns></returns>
-        public string PathCryption(string filePath)
+        /// <summary>  
+        /// C# DES加密方法  
+        /// </summary>  
+        /// <param name="encryptedValue">要加密的字符串</param>  
+        /// <param name="key">密钥</param>  
+        /// <param name="iv">向量</param>  
+        /// <returns>加密后的字符串</returns>  
+        public  string DESEncrypt(string originalValue, string key, string iv)
         {
-            DESCryptoServiceProvider DesCSP = new DESCryptoServiceProvider();
-            byte[] buffer= Convert.FromBase64String(filePath); ;
-            MemoryStream ms = new MemoryStream(buffer);//将加密后的字节数据加入内存流中
-            CryptoStream cryStream = new CryptoStream(ms, DesCSP.CreateDecryptor(), CryptoStreamMode.Read);//内存流连接到解密流中
-            StreamReader sr = new StreamReader(cryStream);
-            string path= sr.ReadLine();//将解密流读取为字符串
-            sr.Close();
-            cryStream.Close();
-            ms.Close();
-            return path;
+            using (DESCryptoServiceProvider sa
+                = new DESCryptoServiceProvider { Key = Encoding.UTF8.GetBytes(key), IV = Encoding.UTF8.GetBytes(iv) })
+            {
+                using (ICryptoTransform ct = sa.CreateEncryptor())
+                {
+                    byte[] by = Encoding.UTF8.GetBytes(originalValue);
+                    using (var ms = new MemoryStream())
+                    {
+                        using (var cs = new CryptoStream(ms, ct,
+                                                         CryptoStreamMode.Write))
+                        {
+                            cs.Write(by, 0, by.Length);
+                            cs.FlushFinalBlock();
+                        }
+                        return Convert.ToBase64String(ms.ToArray());
+                    }
+                }
+            }
         }
 
 
